@@ -1,0 +1,58 @@
+// for windows
+
+
+// 	to start zookeeper
+bin\windows\zookeeper-server-start.bat config\zookeeper.properties
+
+//   to start server
+bin\windows\kafka-server-start.bat config\server.properties
+
+// to create topic
+bin\windows\kafka-topics.bat --create --topic  topic-name --bootstrap-server localhost:9092
+
+//  to start producer
+bin\windows\kafka-console-producer.bat --topic topic-name --bootstrap-server localhost:9092
+
+// to start consumer
+bin\windows\kafka-console-consumer.bat --topic topic-name --from-beginning --bootstarp-server localhost:9092
+  
+
+
+// for linx
+
+// 	to start zookeeper
+bin/zookeeper-server-start.sh config/zookeeper.properties
+
+//   to start server
+bin/kafka-server-start.sh config/server.properties
+
+// to create topic
+bin/kafka-topics.sh --create --topic topic-name --bootstrap-server localhost:9092
+
+//  to start producer
+bin/kafka-console-producer.sh --topic topic-name --bootstrap-server localhost:9092
+
+// to start consumer
+bin/kafka-console-consumer.sh --topic topic-name --from-beginning --bootstrap-server localhost:9092
+
+
+
+
+# Producer configuration
+spring.kafka.producer.bootstrap-servers=localhost:9092
+spring.kafka.producer.key-serializer=org.apache.kafka.common.serialization.StringSerializer
+spring.kafka.producer.value-serializer=org.apache.kafka.common.serialization.StringSerializer
+
+
+
+server.port=1010
+
+# Consumer configuration
+spring.kafka.consumer.bootstrap-servers=localhost:9092
+spring.kafka.consumer.group-id=group-1
+spring.kafka.consumer.auto-offset-reset=earliest
+spring.kafka.consumer.key-deserializer=org.apache.kafka.common.serialization.StringDeserializer
+spring.kafka.consumer.value-deserializer=org.apache.kafka.common.serialization.StringDeserializer
+
+  
+
